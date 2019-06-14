@@ -1,0 +1,11 @@
+<h1>Todas las Naves</h1>
+<table>
+    <thead>
+       <tr>
+         <% @respuesta1.each do |n| %>
+           	<td> </td>
+           	<td><%= link_to n["node"]["name"], naves_path(:content=> n["node"]["id"])%></td>
+              </tr>
+          <% end %>
+    </thead>
+  </table>

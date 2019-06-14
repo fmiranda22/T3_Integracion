@@ -1,0 +1,115 @@
+<h1><%= @respuesta["name"] %></h1>
+<table>
+    <thead>
+       <tr>
+       	<th>Modelo: </th>
+       	<th><%= @respuesta["model"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+        <th>Clase: </th>
+        <th><%= @respuesta["starshipClass"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Largo </th>
+       	<th><%= @respuesta["length"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Costo: </th>
+       	<th><%= @respuesta["costInCredits"] %></th>
+       </tr>
+    </thead>
+
+    <thead>
+       <tr>
+        <th>Tripulacion </th>
+        <th><%= @respuesta["crew"] %></th>
+       </tr>
+
+    <thead>
+       <tr>
+        <th>Pasajeros: </th>
+        <th><%= @respuesta["passengers"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+        <th>Manufactor: </th>
+        <%   @respuesta["manufacturers"] .each do |man| %>
+            <th><%= man %></th>
+             <% end %>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Velocidad maxima(atmosferica) </th>
+       	<th><%= @respuesta["maxAtmospheringSpeed"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+        <th>Hyperdrive rating: </th>
+        <th><%= @respuesta["hyperdriveRating"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+        <th>Mglt: </th>
+        <th><%= @respuesta["MGLT"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Capacidad de carga: </th>
+       	<th><%= @respuesta["cargoCapacity"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Proviciones: </th>
+       	<th><%= @respuesta["consumables"] %></th>
+       </tr>
+    </thead>
+</table>
+
+
+<div class="row">
+ <div class="column"></div>
+ <table>
+     <thead>
+        <tr>
+         <th>--  Peliculas: </th>
+        </tr>
+     </thead>
+     <tbody>
+     <%  @respuesta["filmConnection"]["films"].each do |film| %>
+         <td> </td>
+         <td><%= link_to film["title"], pelicula_path(:informacion=> film ) %></td>
+        </tr>
+          <% end %>
+     </tbody>
+ </table>
+
+ <div class="column"></div>
+ <table>
+     <thead>
+        <tr>
+         <th>Pilotos: </th>
+        </tr>
+     </thead>
+     <tbody>
+     <%  @respuesta["pilotConnection"]["pilots"].each do |pilot| %>
+         <td> </td>
+         <td><%= link_to pilot["name"], personajes_path(:content=> pilot["id"] ) %></td>
+        </tr>
+          <% end %>
+     </tbody>
+ </table>
+
+ <div class="column"></div>
+</div>

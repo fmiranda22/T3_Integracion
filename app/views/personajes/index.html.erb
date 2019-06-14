@@ -1,0 +1,88 @@
+<h1><%= @respuesta["name"] %></h1>
+<table>
+    <thead>
+       <tr>
+       	<th>Año de nacimiento: </th>
+       	<th><%= @respuesta["birthYear"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Genero: </th>
+       	<th><%= @respuesta["gender"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Altura: </th>
+       	<th><%= @respuesta["height"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Peso: </th>
+       	<th><%= @respuesta["mass"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Color de ojos: </th>
+       	<th><%= @respuesta["eyeColor"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Color de pelo: </th>
+       	<th><%= @respuesta["hairColor"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Color de piel: </th>
+       	<th><%= @respuesta["skinColor"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+        <th>Planeta de origen: </th>
+        <th><%= link_to @respuesta["homeworld"]["name"], planeta_path(:content=> @respuesta["homeworld"]["id"] ) %></th>
+       </tr>
+    </thead>
+</table>
+<body>
+  <p>
+  <div class="row">
+   <div class="column"></div>
+   <div class="column"></div>
+   <table>
+       <thead>
+          <tr>
+          	<th>---   Peliculas: </th>
+          </tr>
+       </thead>
+       <tbody>
+   		<% @respuesta["filmConnection"]["films"].each do |film| %>
+          	<td> </td>
+          	<td><%= link_to film["title"], pelicula_path(:informacion=> film )%></td>
+       	 </tr>
+            <% end %>
+       </tbody>
+   </table>
+
+   <div class="column"></div>
+   <table>
+       <thead>
+          <tr>
+          	<th>Naves: </th>
+          </tr>
+       </thead>
+       <tbody>
+   		<%  @respuesta["starshipConnection"]["starships"].each do |film| %>
+          	<td> </td>
+          	<td><%= link_to film["name"], naves_path(:content=> film["id"]) %></td>
+       	 </tr>
+            <% end %>
+       </tbody>
+   </table>
+  </div></p>
+</body>

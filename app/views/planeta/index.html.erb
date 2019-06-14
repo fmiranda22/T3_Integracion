@@ -1,0 +1,93 @@
+<h1><%=  @respuesta["name"] %></h1>
+<table>
+    <thead>
+       <tr>
+       	<th>Diametro: </th>
+       	<th><%= @respuesta["diameter"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+        <th>Periodo de orbita: </th>
+        <th><%= @respuesta["orbitalPeriod"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Periodo de rotacion: </th>
+       	<th><%= @respuesta["rotationPeriod"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Gravedad: </th>
+       	<th><%= @respuesta["gravity"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+        <th>Poblacion: </th>
+        <th><%= @respuesta["population"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+        <th>Agua superficial: </th>
+        <th><%= @respuesta["surfaceWater"] %></th>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+        <th>Terrenos: </th>
+        <%   @respuesta["terrains"].each do |ter| %>
+            <th><%= ter %></th>
+             <% end %>
+       </tr>
+    </thead>
+    <thead>
+       <tr>
+       	<th>Climas: </th>
+        <%   @respuesta["climates"] .each do |cli| %>
+            <th><%= cli %></th>
+             <% end %>
+       </tr>
+    </thead>
+
+
+</table>
+
+<div class="row">
+ <div class="column"></div>
+
+ <table>
+     <thead>
+        <tr>
+        	<th>--   Peliculas: </th>
+        </tr>
+     </thead>
+     <tbody>
+ 		<%  @respuesta["filmConnection"]["films"].each do |film| %>
+        	<td> </td>
+        	<td><%= link_to film["title"], pelicula_path(:informacion=> film) %></td>
+     	 </tr>
+          <% end %>
+     </tbody>
+ </table>
+ <div class="column"></div>
+
+ <table>
+     <thead>
+        <tr>
+        	<th>Residentes: </th>
+        </tr>
+     </thead>
+     <tbody>
+ 		<%  @respuesta["residentConnection"]["residents"].each do |residente| %>
+        	<td> </td>
+        	<td><%= link_to residente["name"], personajes_path(:content=> residente["id"] ) %></td>
+     	 </tr>
+          <% end %>
+     </tbody>
+ </table>
+ <div class="column"></div>
+</div>

@@ -1,0 +1,27 @@
+  <h1></h1>
+  <body>
+    <table>
+        <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Año de lanzamiento</th>
+              <th>Episodio</th>
+              <th>Director</th>
+              <th>Productores</th>
+            </tr>
+        </thead>
+        <tbody>
+          <%@nombres.each do |peli|%>
+          <tr>
+            <td><%= link_to peli["node"]["title"], pelicula_path(:informacion=> peli["node"] ), class: "btn btn-primary" %></td>
+            <td><%= peli["node"]["releaseDate"] %></td>
+            <td><%= peli["node"]["episodeID"] %></td>
+            <td><%= peli["node"]["director"] %></td>
+            <%peli["node"]["producers"].each do |p|%>
+              <td><%=p  %></td>
+            <% end %>
+          </tr>
+            <% end %>
+        </tbody>
+    </table>
+  </body>

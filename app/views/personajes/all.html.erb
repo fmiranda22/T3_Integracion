@@ -1,0 +1,11 @@
+<h1>Todas las Personas</h1>
+<table>
+    <thead>
+       <tr>
+         <% @respuesta1.each do |p| %>
+           	<td> </td>
+           	<td><%= link_to p["node"]["name"], personajes_path(:content=> p["node"]["id"])%></td>
+              </tr>
+          <% end %>
+    </thead>
+  </table>
